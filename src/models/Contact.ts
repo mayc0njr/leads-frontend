@@ -1,15 +1,16 @@
-import { Category } from "./Category";
 import { formatter } from "../util/fromatter";
+
 export interface ContactData {
     id: string;
     name: string;
     createdDate: string;
     suburb: string;
-    category: Category;
+    category: number;
     description: string;
     price: number;
     phone: string;
     email: string;
+    status: number;
 }
 
 export class Contact implements ContactData {
@@ -17,11 +18,12 @@ export class Contact implements ContactData {
     readonly name: string;
     readonly createdDate: string;
     readonly suburb: string;
-    readonly category: Category;
+    readonly category: number;
     readonly description: string;
     readonly price: number;
     readonly phone: string;
     readonly email: string;
+    readonly status: number;
 
     constructor(data: ContactData) {
         this.id = data.id
@@ -33,6 +35,7 @@ export class Contact implements ContactData {
         this.price = data.price
         this.phone = data.phone
         this.email = data.email
+        this.status = data.status;
     }
     
     public get firstName() : string {
