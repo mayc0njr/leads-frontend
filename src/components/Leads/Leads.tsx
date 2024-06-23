@@ -1,14 +1,15 @@
 import './Leads.css'
 import { Tabs } from "flowbite-react";
 import { Contact } from '../../models/Contact';
+import AcceptedCard from '../AcceptedCard/AcceptedCard';
 import InvitedCard from '../InvitedCard/InvitedCard';
 
 
 function Leads() {
     
   const contact: Contact = {
-    id: 'id',
-    name: 'name',
+    id: '123456',
+    name: 'Name Mister',
     createdDate: '2021-01-22T17:14:24Z',
     suburb: 'suburb',
     category: {
@@ -32,16 +33,10 @@ function Leads() {
     <div className='h-full'>
         <Tabs aria-label='Leads' variant='fullWidth'>
             <Tabs.Item active title="Invited">
-                This is <span className="font-medium text-gray-800 dark:text-white">Profile tab's associated content</span>.
-                Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to
-                control the content visibility and styling.
                 {waitingContacts.map((contact) => <InvitedCard {...contact}/>)}
             </Tabs.Item>
             <Tabs.Item title="Accepted">
-                This is <span className="font-medium text-gray-800 dark:text-white">Dashboard tab's associated content</span>.
-                Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to
-                control the content visibility and styling.
-            {acceptedContacts.map((contact) => <InvitedCard {...contact}/>)}
+            {acceptedContacts.map((contact) => <AcceptedCard {...contact}/>)}
             </Tabs.Item>
         </Tabs></div>
     </>
