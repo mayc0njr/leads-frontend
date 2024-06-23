@@ -1,18 +1,18 @@
-import './InvitedCard.css'
+import './AcceptedCard.css'
 import { Avatar } from "flowbite-react";
 import { Contact } from '../../models/Contact'
-import { formatCurrency, formatDate, getCategoryIcon } from '../../util/formatter'
+import { firstLetter, formatCurrency, formatDate, getCategoryIcon } from '../../util/formatter'
 import { EnvelopeSimple, MapPin, Phone } from '@phosphor-icons/react';
 
 
-function Card(contact: Contact) {
+function AcceptedCard(contact: Contact) {
 
   return (
     <>
       <div className='m-4 bg-white text-gray-700 box-border shadow-md p-4'>
         <div className='border-0 border-b-2 flex flex-1 flex-row py-2'>
             <div className='mr-2 '>
-                <Avatar placeholderInitials="P" rounded  />
+                <Avatar placeholderInitials={firstLetter(contact.name)} rounded  />
             </div>
             <div className='text-left'>
                 <div className='font-bold'>{contact.name}</div>
@@ -43,4 +43,4 @@ function Card(contact: Contact) {
   )
 }
 
-export default Card
+export default AcceptedCard
