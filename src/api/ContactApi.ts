@@ -2,7 +2,7 @@ import api from './config/axiosConfig';
 import {ContactData} from '../models/Contact';
 import { CategoryData } from '../models/Category';
 
-export const ProductAPI = {
+export const ContactApi = {
   getAllAccepted: async function () {
     const response = await api.request({
       url: "/contacts",
