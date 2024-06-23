@@ -1,11 +1,11 @@
-import { formatter } from "../util/fromatter";
+import { Category } from "./Category";
 
 export interface ContactData {
     id: string;
     name: string;
     createdDate: string;
     suburb: string;
-    category: number;
+    category: Category;
     description: string;
     price: number;
     phone: string;
@@ -18,7 +18,7 @@ export class Contact implements ContactData {
     readonly name: string;
     readonly createdDate: string;
     readonly suburb: string;
-    readonly category: number;
+    readonly category: Category;
     readonly description: string;
     readonly price: number;
     readonly phone: string;
@@ -36,25 +36,6 @@ export class Contact implements ContactData {
         this.phone = data.phone
         this.email = data.email
         this.status = data.status;
-    }
-    
-    public get firstName() : string {
-        if(this.name)
-            return this.name.split(' ')[0];
-        return '';
-    }
-
-    
-    public get firstLetter() : string {
-        if(this.name)
-            return this.name[0];
-        return '?';
-    }
-
-    public get priceValue() : string {
-        if(this.price)
-            return formatter.format(this.price);
-        return "-";
     }
 
 }
