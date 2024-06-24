@@ -3,10 +3,31 @@ import { Avatar, Button } from "flowbite-react";
 import { Contact } from '../../models/Contact'
 import { firstLetter, firstName, formatCurrency, formatDateInvited, getCategoryIcon } from '../../util/formatter'
 import { MapPin } from '@phosphor-icons/react';
+import { ContactApi } from '../../api/ContactApi';
+import { STATUS } from '../../util/constant';
+import { useState } from 'react';
+import { mutate } from 'swr';
 
+function InvitedCard(data: {contact: Contact}) {
+  const [isAccepting, setAccepting] = useState(false);
+  const [isDenying, setDenying] = useState(false);
+  const [isDisabled, setDisabled] = useState(false);
 
-function InvitedCard(contact: Contact) {
-    // const [isProcessing, setProcessing] = useState(false);
+    const contact = data.contact;
+    const acceptLead = () => {
+      setAccepting(true);
+      setDisabled(true);
+      const data = new Contact(contact, STATUS.ACCEPTED);
+      ContactApi.updateContact(data).then(() => { mutate((key: string) => key.startsWith('/api/')); setAccepting(false); })
+    }
+    
+    const denyLead = () => {
+      setDenying(true);
+      setDisabled(true);
+      const data = new Contact(contact, STATUS.DENIED);
+      ContactApi.updateContact(data).then(() => { mutate((key: string) => key.startsWith('/api/')); setDenying(false); })
+    }
+    
 
   return (
     <>
@@ -32,8 +53,8 @@ function InvitedCard(contact: Contact) {
             <div className='mr-4'> {contact.description} </div>
         </div>
         <div className='pt-4 flex flex-row text-gray-500'>
-            <Button className='mr-2 shadow font-semibold'>Accept</Button>
-            <Button color='gray' className='mr-6 shadow font-semibold'>Decline</Button>
+            <Button disabled={isDisabled} isProcessing={isAccepting} onClick={acceptLead} className='mr-2 shadow font-semibold'>Accept</Button>
+            <Button disabled={isDisabled} isProcessing={isDenying} onClick={denyLead} color='gray' className='mr-6 shadow font-semibold'>Decline</Button>
             <div className='flex flex-row text-gray-500 align-middle'>
                 <div className='pt-2 mr-1 font-bold'> {formatCurrency(contact.price)}</div>
                 <div className='pt-2'> Lead Invitation</div>

@@ -25,7 +25,10 @@ export class Contact implements ContactData {
     readonly email: string;
     readonly status: number;
 
-    constructor(data: ContactData) {
+    constructor(data: ContactData);
+    constructor(data: ContactData, status: number);
+
+    constructor(data: ContactData, status?: number) {
         this.id = data.id
         this.name = data.name
         this.createdDate = data.createdDate
@@ -35,7 +38,10 @@ export class Contact implements ContactData {
         this.price = data.price
         this.phone = data.phone
         this.email = data.email
-        this.status = data.status;
+        if(status)
+            this.status = status
+        else
+            this.status = data.status;
     }
 
 }
