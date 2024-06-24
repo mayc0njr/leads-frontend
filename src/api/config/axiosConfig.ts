@@ -1,7 +1,7 @@
 import axios, { AxiosError } from "axios";
 
 const api = axios.create({
-  baseURL: "https://jsonplaceholder.typicode.com/posts" 
+  baseURL: "http://localhost:3000" 
 });
 
 api.defaults.headers.get = {

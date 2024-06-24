@@ -1,22 +1,21 @@
 import api from './config/axiosConfig';
 import {ContactData} from '../models/Contact';
 import { CategoryData } from '../models/Category';
+import { STATUS } from '../util/constant';
 
 export const ContactApi = {
   getAllAccepted: async function () {
     const response = await api.request({
-      url: "/contacts",
+      url: `/contacts?status=${STATUS.ACCEPTED}`,
       method: "GET",
     })
-
     return response.data
   },
   getAllWaiting: async function () {
     const response = await api.request({
-      url: "/contacts",
+      url: `/contacts?status=${STATUS.WAITING}`,
       method: "GET",
     })
-
     return response.data
   },
 
