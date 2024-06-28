@@ -31,9 +31,9 @@ function AcceptedCard(contact: Contact) {
         </div>
         <div className='py-2 flex flex-1 flex-row font-bold'>
             <div className='mr-2'><Phone size={24} /></div>
-            <div className='mr-4 text-yellow-500'> {contact.phone} </div>
+            <div className='mr-4 text-orange-500'> {contact.phone} </div>
             <div className='mr-2'><EnvelopeSimple size={24} /></div>
-            <div className='mr-4 text-yellow-500'> {contact.email} </div>
+            <div className='mr-4 text-orange-500'> {contact.email} </div>
         </div>
         <div className='pb-2 flex flex-1 flex-row text-gray-500 text-sm'>
             <div className='mr-4'> {contact.description} </div>

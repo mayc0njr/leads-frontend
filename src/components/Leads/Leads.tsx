@@ -90,16 +90,6 @@ function Leads() {
                             )
 
                         }
-                        {/* {acceptedLoading && (
-                            <div className="flex flex-wrap gap-2">
-                                <div className="text-center">
-                                    <Spinner size="xl" color="warning" />
-                                </div>
-                            </div>
-                        )}
-                        {acceptedData.map((contact: Contact) => (
-                            <AcceptedCard {...contact} />
-                        ))} */}
                     </Tabs.Item>
                 </Tabs>
             </div>
