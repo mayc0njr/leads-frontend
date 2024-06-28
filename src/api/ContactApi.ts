@@ -1,19 +1,19 @@
 import api from './config/axiosConfig';
 import {ContactData} from '../models/Contact';
 import { CategoryData } from '../models/Category';
-import { STATUS } from '../util/constant';
+import { UpdateStatusRequest } from './models/UpdateStatusRequest';
 
 export const ContactApi = {
   getAllAccepted: async function () {
     const response = await api.request({
-      url: `/contacts?status=${STATUS.ACCEPTED}`,
+      url: `/contact/accepted`,
       method: "GET",
     })
     return response.data
   },
   getAllWaiting: async function () {
     const response = await api.request({
-      url: `/contacts?status=${STATUS.WAITING}`,
+      url: `/contact/waiting`,
       method: "GET",
     })
     return response.data
@@ -30,9 +30,9 @@ export const ContactApi = {
 
   updateContact: async function (contact: ContactData) {
     const response = await api.request({
-      url: `/contacts/${contact.id}`,
-      method: "PUT",
-      data: contact,
+      url: `/contact/${contact.id}`,
+      method: "PATCH",
+      data: new UpdateStatusRequest(contact.status),
     })
 
     return response.status;

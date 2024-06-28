@@ -53,8 +53,8 @@ function InvitedCard(data: {contact: Contact}) {
             <div className='mr-4'> {contact.description} </div>
         </div>
         <div className='pt-4 flex flex-row text-gray-500'>
-            <Button disabled={isDisabled} isProcessing={isAccepting} onClick={acceptLead} className='mr-2 shadow font-semibold'>Accept</Button>
-            <Button disabled={isDisabled} isProcessing={isDenying} onClick={denyLead} color='gray' className='mr-6 shadow font-semibold'>Decline</Button>
+            <Button disabled={isDisabled} isProcessing={isAccepting} onClick={acceptLead} className='mr-2 shadow font-semibold bg-orange-500'>Accept</Button>
+            <Button disabled={isDisabled} isProcessing={isDenying} onClick={denyLead} color='gray' className='mr-6 shadow font-semibold bg-gray-200'>Decline</Button>
             <div className='flex flex-row text-gray-500 align-middle'>
                 <div className='pt-2 mr-1 font-bold'> {formatCurrency(contact.price)}</div>
                 <div className='pt-2'> Lead Invitation</div>

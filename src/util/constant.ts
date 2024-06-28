@@ -5,7 +5,7 @@ export const DEFAULT = {
 } as const;
 
 export const STATUS = {
-    WAITING: 1,
-    ACCEPTED: 2,
-    DENIED: 3
+    WAITING: 0,
+    ACCEPTED: 1,
+    DENIED: 2
 } as const;
