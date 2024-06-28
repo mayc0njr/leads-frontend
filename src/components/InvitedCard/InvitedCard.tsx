@@ -1,8 +1,8 @@
 import './InvitedCard.css'
 import { Avatar, Button } from "flowbite-react";
 import { Contact } from '../../models/Contact'
-import { firstLetter, firstName, formatCurrency, formatDateInvited, getCategoryIcon } from '../../util/formatter'
-import { MapPin } from '@phosphor-icons/react';
+import { firstLetter, firstName, formatCurrency, formatDateInvited } from '../../util/formatter'
+import { MapPin, Suitcase } from '@phosphor-icons/react';
 import { ContactApi } from '../../api/ContactApi';
 import { STATUS } from '../../util/constant';
 import { useState } from 'react';
@@ -44,7 +44,7 @@ function InvitedCard(data: {contact: Contact}) {
         <div className='py-4 flex flex-1 flex-row border-b-2 text-gray-500'>
             <div className='mr-2 text-gray-700'><MapPin size={24} /></div>
             <div className='mr-4'> {contact.suburb} </div>
-            <div className='mr-2 text-gray-700'>{getCategoryIcon(contact.category.id)}</div>
+            <div className='mr-2 text-gray-700'><Suitcase size={24} weight="regular"/></div>
             <div className='mr-4'> {contact.category.name} </div>
             <div className='mr-1'> Job ID: </div>
             <div className='mr-4'> {contact.id} </div>
