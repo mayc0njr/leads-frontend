@@ -5,13 +5,16 @@ Leads Management
 .env file contains environment variable for backend api url
 
 # How to run
-install packages with
+Install packages with
 ```
 npm install
 ```
 
-run the application with
-`npx vite` or `npx vite --port XXXX` to choose which port to run
+Run the application with:
+```npx vite```
+Or, to choose which port to run:
+```npx vite --port XXXX```
+
 
 Frontend for a leads management small project.  
 - Built in Vite + React: https://vitejs.dev/ - https://react.dev/
