@@ -1,8 +1,8 @@
 import './AcceptedCard.css'
 import { Avatar } from "flowbite-react";
 import { Contact } from '../../models/Contact'
-import { firstLetter, formatCurrency, formatDate, getCategoryIcon } from '../../util/formatter'
-import { EnvelopeSimple, MapPin, Phone } from '@phosphor-icons/react';
+import { firstLetter, formatCurrency, formatDate } from '../../util/formatter'
+import { EnvelopeSimple, MapPin, Phone, Suitcase } from '@phosphor-icons/react';
 
 
 function AcceptedCard(contact: Contact) {
@@ -22,7 +22,7 @@ function AcceptedCard(contact: Contact) {
         <div className='py-2 flex flex-1 flex-row border-b-2 text-gray-500'>
             <div className='mr-2 text-gray-700'><MapPin size={24} /></div>
             <div className='mr-4'> {contact.suburb} </div>
-            <div className='mr-2 text-gray-700'>{getCategoryIcon(contact.category.id)}</div>
+            <div className='mr-2 text-gray-700'><Suitcase size={24} weight="regular"/></div>
             <div className='mr-4'> {contact.category.name} </div>
             <div className='mr-1'> Job ID: </div>
             <div className='mr-4'> {contact.id} </div>
